@@ -1,0 +1,1261 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Tech | مطور ومصمم ومسوق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-glass: rgba(30, 41, 59, 0.8);
+            --accent-blue: #38bdf8;
+            --accent-purple: #818cf8;
+            --accent-green: #10b981;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -5px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+        }
+
+        /* Calculator */
+        .calculator-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .calc-header h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .results {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(56, 189, 248, 0.1);
+            border-right: 4px solid var(--accent-blue);
+            border-radius: 12px;
+        }
+
+        .stat-box {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .service-card ul li::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Whiteboard Section */
+        .whiteboard-container {
+            background: var(--bg-glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .whiteboard-tools {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-btn.active, .tool-btn:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        #whiteboard {
+            background: white;
+            border-radius: 12px;
+            cursor: crosshair;
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: var(--bg-glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--bg-secondary), #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--bg-glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Chatbot Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-container {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            width: 350px;
+            height: 500px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-container.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            padding: 1rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.75rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .message.bot {
+            background: rgba(56, 189, 248, 0.1);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: right;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .option-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .close-chat {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .chat-input-area {
+            padding: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .chat-container {
+                width: calc(100vw - 40px);
+                left: 20px;
+                height: 60vh;
+            }
+            
+            .chat-widget {
+                left: 20px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-code"></i> Growth Tech
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#portfolio">الأعمال</a></li>
+                <li><a href="#whiteboard">ارسم فكرتك</a></li>
+                <li><a href="#contact">تواصل</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" style="display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); z-index: 999; padding: 2rem;">
+        <ul style="list-style: none;">
+            <li style="margin: 1rem 0;"><a href="#home" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الرئيسية</a></li>
+            <li style="margin: 1rem 0;"><a href="#services" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الخدمات</a></li>
+            <li style="margin: 1rem 0;"><a href="#portfolio" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الأعمال</a></li>
+            <li style="margin: 1rem 0;"><a href="#contact" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">تواصل</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    حوّل موقعك من 
+                    <span>كلفة إلى استثمار</span>
+                </h1>
+                <p>مطور Full Stack، مصمم UI/UX، ومسوّق رقمي. أبني حلولاً تقنية متكاملة تنمو مع أعمالك.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> ابدأ مشروعك
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> شاهد الأعمال
+                    </a>
+                </div>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calc-header">
+                    <h3>حاسبة الخسارة الشهرية</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">اكتشف كم تخسر بسبب مشاكل تقنية</p>
+                </div>
+                
+                <div class="input-group">
+                    <label>عدد الزوار الشهريين</label>
+                    <input type="number" id="visitors" placeholder="مثال: 10000">
+                </div>
+
+                <div class="input-group">
+                    <label>معدل التحويل الحالي (%)</label>
+                    <input type="number" id="conversion" step="0.1" placeholder="مثال: 2.0">
+                </div>
+
+                <div class="input-group">
+                    <label>متوسط قيمة الطلب ($)</label>
+                    <input type="number" id="orderValue" placeholder="مثال: 50">
+                </div>
+
+                <div class="input-group">
+                    <label>المشكلة الأساسية</label>
+                    <select id="issue">
+                        <option value="slow">بطء التحميل (>3 ثواني)</option>
+                        <option value="design">تصميم قديم / UX ضعيف</option>
+                        <option value="mobile">عدم توافق الجوال</option>
+                        <option value="seo">غياب SEO / Marketing</option>
+                    </select>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateLoss()">
+                    احسب الخسارة الآن
+                </button>
+
+                <div id="calcResults" class="results" style="display: none;">
+                    <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">التحليل التقني:</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="stat-box">
+                            <div class="stat-number" id="currentRev">$0</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);">الإيرادات الحالية</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="potentialRev">$0</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);">المحتملة</div>
+                        </div>
+                    </div>
+                    <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-right: 3px solid #ef4444;">
+                        <strong>الخسارة الشهرية: <span id="monthlyLoss" style="color: #ef4444;">$0</span></strong>
+                    </div>
+                    <p id="recommendation" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+                    <a href="#contact" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--accent-green); color: white; text-decoration: none; border-radius: 8px;">
+                        احصل على خطة التحسين
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">خدمات متكاملة تحت سقف واحد</h2>
+        <p class="section-subtitle">لا تحتاج لتوظيف 3 أشخاص، أنا أجمع البرمجة، التصميم، والتسويق</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>تطوير الويب</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">بناء تطبيقات ومواقع احترافية بأحدث التقنيات</p>
+                <ul>
+                    <li>تطوير Full Stack (React, Node.js)</li>
+                    <li>حلول WordPress مخصصة</li>
+                    <li>تحسين الأداء والسرعة</li>
+                    <li>APIs وربط الأنظمة</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>تصميم UI/UX</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">تصميم تجارب مستخدم تجعل الزائر يحب منتجك</p>
+                <ul>
+                    <li>تصميم واجهات تفاعلية</li>
+                    <li>تجربة مستخدم (UX Research)</li>
+                    <li>تصميم هوية بصرية</li>
+                    <li>نماذج أولية (Prototyping)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #10b981, #3b82f6);">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>التسويق الرقمي</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">جلب زبائن حقيقيين وليس مجرد زيارات</p>
+                <ul>
+                    <li>تحسين محركات البحث (SEO)</li>
+                    <li>إعلانات Google & Social Media</li>
+                    <li>تحليل البيانات وAnalytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">معمل الأعمال</h2>
+        <p class="section-subtitle">مشاريع حقيقية، نتائج قابلة للقياس</p>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="portfolio-content">
+                    <h3>متجر إلكتروني متكامل</h3>
+                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">تطوير متجر بمعدل تحويل 4.2% وزيادة مبيعات 150%</p>
+                    <div>
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image" style="background: linear-gradient(135deg, #1e293b, #334155);">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="portfolio-content">
+                    <h3>نظام حجز طبي ذكي</h3>
+                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">تقليل وقت الحجز من 15 دقيقة إلى 30 ثانية</p>
+                    <div>
+                        <span class="tag">Full Stack</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">SEO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-image" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="portfolio-content">
+                    <h3>لوحة تحليلات Marketing</h3>
+                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">Dashboard لتحليل أداء الإعلانات ب real-time</p>
+                    <div>
+                        <span class="tag">Data Viz</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Whiteboard Section -->
+    <section id="whiteboard">
+        <h2 class="section-title">ارسم فكرتك</h2>
+        <p class="section-subtitle">ارسم رسمة تخطيطية لفكرتك وسأحولها إلى تصميم احترافي</p>
+        
+        <div class="whiteboard-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="color: var(--accent-blue);">لوحة الرسم التفاعلية</h3>
+                <div class="whiteboard-tools">
+                    <button class="tool-btn active" onclick="setTool('pen')" title="قلم">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="tool-btn" onclick="setTool('eraser')" title="ممحاة">
+                        <i class="fas fa-eraser"></i>
+                    </button>
+                    <button class="tool-btn" onclick="clearCanvas()" title="مسح الكل" style="color: #ef4444;">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="tool-btn" onclick="downloadCanvas()" title="تحميل" style="color: #10b981;">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <canvas id="whiteboard" style="background: white; border-radius: 12px; cursor: crosshair;"></canvas>
+            
+            <p style="text-align: center; color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> اضغط ومستمر للرسم بالماوس أو باللمس على الجوال
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">لنبدأ مشروعك القادم</h2>
+        <p class="section-subtitle">تواصل معي مباشرة لنحوّل فكرتك إلى حقيقة</p>
+
+        <div class="contact-container">
+            <div>
+                <h3 style="margin-bottom: 1rem;">معلومات التواصل</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">اختر الطريقة التي تناسبك للتواصل:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="https://wa.me/1234567890" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; color: var(--text-primary);">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #25d366, #128c7e); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">واتساب</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">رد سريع خلال ساعة</p>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:hello@growthtech.com" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; color: var(--text-primary);">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">البريد الإلكتروني</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">hello@growthtech.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 1.5rem;">أرسل تفاصيل مشروعك</h3>
+                <form onsubmit="event.preventDefault(); alert('شكراً! تم استلام طلبك وسأتواصل معك خلال 24 ساعة.'); this.reset();">
+                    <div class="form-group">
+                        <label>الاسم</label>
+                        <input type="text" required placeholder="اسمك الكريم">
+                    </div>
+
+                    <div class="form-group">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>نوع المشروع</label>
+                        <select required style="font-family: 'Cairo', sans-serif;">
+                            <option value="">اختر...</option>
+                            <option value="new">موقع جديد</option>
+                            <option value="redesign">إعادة تصميم</option>
+                            <option value="app">تطبيق موبايل</option>
+                            <option value="marketing">تسويق رقمي</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>تفاصيل المشروع</label>
+                        <textarea rows="4" placeholder="اشرح فكرتك هنا..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <i class="fas fa-code"></i> Growth Tech
+        </div>
+        <p>نبني المستقبل الرقمي، سطراً بسطر</p>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
+            © 2026 Growth Tech. جميع الحقوق محفوظة.
+        </p>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chat-widget">
+        <button class="chat-button" onclick="toggleChat()" id="chatBtn">
+            <i class="fas fa-comments"></i>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <span><i class="fas fa-robot"></i> مساعد Growth Tech</span>
+                <button class="close-chat" onclick="toggleChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages here -->
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب هنا..." onkeypress="if(event.key==='Enter') handleChatInput()">
+                <button onclick="handleChatInput()" style="background: var(--accent-blue); border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Calculator
+        function calculateLoss() {
+            const visitors = parseFloat(document.getElementById('visitors').value) || 0;
+            const conversion = parseFloat(document.getElementById('conversion').value) || 0;
+            const orderValue = parseFloat(document.getElementById('orderValue').value) || 0;
+            const issue = document.getElementById('issue').value;
+
+            const currentRevenue = visitors * (conversion / 100) * orderValue;
+            
+            const improvements = {
+                'slow': 0.35,
+                'design': 0.50,
+                'mobile': 0.40,
+                'seo': 0.60
+            };
+
+            const multiplier = 1 + (improvements[issue] || 0);
+            const potentialRevenue = currentRevenue * multiplier;
+            const loss = potentialRevenue - currentRevenue;
+
+            document.getElementById('currentRev').textContent = '$' + Math.round(currentRevenue).toLocaleString();
+            document.getElementById('potentialRev').textContent = '$' + Math.round(potentialRevenue).toLocaleString();
+            document.getElementById('monthlyLoss').textContent = '$' + Math.round(loss).toLocaleString();
+
+            const recommendations = {
+                'slow': 'الموقع البطيء يفقد 53% من الزوار. نحتاج تحسين أداء فوري.',
+                'design': 'التصميم القديم ينقص الثقة. Redesign شامل هو الحل.',
+                'mobile': '60% من الزوار من الجوال! نحتاج تصميم متجاوب.',
+                'seo': 'أنت تفقد آلاف الزوار المجانية. SEO سيغير ميزانيتك.'
+            };
+
+            document.getElementById('recommendation').textContent = recommendations[issue];
+            document.getElementById('calcResults').style.display = 'block';
+            document.getElementById('calcResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Whiteboard
+        const canvas = document.getElementById('whiteboard');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let currentTool = 'pen';
+        let lastX = 0;
+        let lastY = 0;
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width - 64;
+            canvas.height = 400;
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#000';
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 2;
+        }
+
+        window.addEventListener('load', resizeCanvas);
+        window.addEventListener('resize', resizeCanvas);
+
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const pos = getPos(e);
+            [lastX, lastY] = [pos.x, pos.y];
+            e.preventDefault();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getPos(e);
+            
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(pos.x, pos.y);
+            
+            if (currentTool === 'eraser') {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 20;
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+            }
+            
+            ctx.stroke();
+            [lastX, lastY] = [pos.x, pos.y];
+            e.preventDefault();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        canvas.addEventListener('touchstart', startDrawing, {passive: false});
+        canvas.addEventListener('touchmove', draw, {passive: false});
+        canvas.addEventListener('touchend', stopDrawing);
+
+        function setTool(tool) {
+            currentTool = tool;
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function downloadCanvas() {
+            const link = document.createElement('a');
+            link.download = 'sketch.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // Chatbot
+        let chatStep = 0;
+        let chatData = {};
+
+        function toggleChat() {
+            const container = document.getElementById('chatContainer');
+            const btn = document.getElementById('chatBtn');
+            
+            if (container.classList.contains('open')) {
+                container.classList.remove('open');
+                btn.innerHTML = '<i class="fas fa-comments"></i>';
+            } else {
+                container.classList.add('open');
+                btn.innerHTML = '<i class="fas fa-times"></i>';
+                
+                if (chatStep === 0) {
+                    setTimeout(() => {
+                        addChatMessage('أهلاً بك! 👋 أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟', 'bot');
+                        setTimeout(() => {
+                            addChatOptions(['أريد موقع جديد', 'تعديل موقع موجود', 'استشارة تقنية']);
+                        }, 500);
+                    }, 300);
+                }
+            }
+        }
+
+        function addChatMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = 'message ' + sender;
+            div.textContent = text;
+            document.getElementById('chatMessages').appendChild(div);
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function addChatOptions(options) {
+            const container = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = 'chat-options';
+            
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.onclick = function() {
+                    addChatMessage(opt, 'user');
+                    handleChatOption(opt);
+                    div.remove();
+                };
+                div.appendChild(btn);
+            });
+            
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function handleChatOption(option) {
+            chatStep++;
+            setTimeout(() => {
+                if (chatStep === 1) {
+                    chatData.service = option;
+                    addChatMessage('ممتاز! ما ميزانيتك المتوقعة؟', 'bot');
+                    setTimeout(() => addChatOptions(['أقل من 1000$', '1000-3000$', 'أكثر من 3000$']), 300);
+                } else if (chatStep === 2) {
+                    chatData.budget = option;
+                    addChatMessage('يمكنك الآن وصف مشروعك باختصار، أو اضغط على زر الواتساب للتواصل المباشر:', 'bot');
+                    setTimeout(() => {
+                        const container = document.getElementById('chatMessages');
+                        const link = document.createElement('a');
+                        link.href = 'https://wa.me/1234567890?text=' + encodeURIComponent(`مرحباً، أنا مهتم بـ ${chatData.service} وميزانيتي ${chatData.budget}`);
+                        link.className = 'btn btn-primary';
+                        link.style = 'display: inline-block; margin: 10px 0; text-decoration: none;';
+                        link.target = '_blank';
+                        link.innerHTML = '<i class="fab fa-whatsapp"></i> تواصل عبر واتساب';
+                        const div = document.createElement('div');
+                        div.className = 'message bot';
+                        div.appendChild(link);
+                        container.appendChild(div);
+                        container.scrollTop = container.scrollHeight;
+                    }, 300);
+                }
+            }, 500);
+        }
+
+        function handleChatInput() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            addChatMessage(text, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                addChatMessage('شكراً لك! سأقوم بمراجعة رسالتك والرد عليك قريباً. يمكنك أيضاً استخدام النموذج أدناه لإرسال تفاصيل أكثر.', 'bot');
+            }, 500);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
