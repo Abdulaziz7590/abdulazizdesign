@@ -17,9 +17,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/512/2922/2922506.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://cdn-icons-png.flaticon.com/512/2922/2922506.png">
     
-    <!-- Open Graph / Facebook -->
+    <!-- ⚠️ الرابط الجديد - GitHub Pages -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://abdulazizdesign.netlify.app/">
+    <meta property="og:url" content="https://abdulaziz7590.github.io/abdulazizdesign/">
     <meta property="og:title" content="Growth Tech | شريكك التقني المتكامل">
     <meta property="og:description" content="أحول الأفكار التقنية إلى مصادر دخل. تطوير ويب، UI/UX، وتسويق رقمي باحترافية.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
@@ -29,13 +29,13 @@
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://abdulazizdesign.netlify.app/">
+    <meta property="twitter:url" content="https://abdulaziz7590.github.io/abdulazizdesign/">
     <meta property="twitter:title" content="Growth Tech | مطور Full Stack">
     <meta property="twitter:description" content="حلول تقنية متكاملة للشركات والأفراد. ابدأ مشروعك الآن.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://abdulazizdesign.netlify.app/">
+    <!-- Canonical URL - تم تحديثه -->
+    <link rel="canonical" href="https://abdulaziz7590.github.io/abdulazizdesign/">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- EmailJS SDK (لإرسال النماذج فعلياً) -->
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <style>
@@ -165,7 +165,6 @@
             cursor: pointer;
         }
 
-        /* Sections */
         section {
             padding: 5rem 5%;
             max-width: 1400px;
@@ -724,7 +723,7 @@
             background: var(--bg-glass);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px);
+            border-radius: 20px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: none;
             flex-direction: column;
@@ -735,6 +734,11 @@
         .chat-container.open {
             display: flex;
             animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .chat-header {
@@ -927,7 +931,7 @@
     </style>
 </head>
 <body>
-    <!-- Google Analytics (استبدل G-XXXXXXXXXX بمعرفك) -->
+    <!-- Google Analytics - استبدل G-XXXXXXXXXX بمعرفك -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -936,7 +940,6 @@
         gtag('config', 'G-XXXXXXXXXX');
     </script>
 
-    <!-- Background -->
     <div class="bg-grid"></div>
 
     <!-- Navigation -->
@@ -983,714 +986,4 @@
                     </button>
                     <a href="#portfolio" class="btn btn-secondary">
                         <i class="fas fa-eye"></i> شاهد الأعمال
-                    </a>
-                </div>
-            </div>
-
-            <div class="calculator-card">
-                <div class="calc-header">
-                    <h3><i class="fas fa-calculator"></i> حاسبة الخسارة الشهرية</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">اكتشف كم تخسر بسبب مشاكل تقنية</p>
-                </div>
-                
-                <div class="input-group">
-                    <label>عدد الزوار الشهريين</label>
-                    <input type="number" id="visitors" placeholder="مثال: 10000">
-                </div>
-
-                <div class="input-group">
-                    <label>معدل التحويل الحالي (%)</label>
-                    <input type="number" id="conversion" step="0.1" placeholder="مثال: 2.0">
-                </div>
-
-                <div class="input-group">
-                    <label>متوسط قيمة الطلب ($)</label>
-                    <input type="number" id="orderValue" placeholder="مثال: 50">
-                </div>
-
-                <div class="input-group">
-                    <label>المشكلة الأساسية</label>
-                    <select id="issue" style="font-family: 'Cairo', sans-serif;">
-                        <option value="slow">بطء التحميل (>3 ثواني)</option>
-                        <option value="design">تصميم قديم / UX ضعيف</option>
-                        <option value="mobile">عدم توافق الجوال</option>
-                        <option value="seo">غياب SEO / Marketing</option>
-                    </select>
-                </div>
-
-                <button class="calculate-btn" onclick="calculateLoss()">
-                    احسب الخسارة الآن
-                </button>
-
-                <div id="calcResults" class="results">
-                    <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">التحليل التقني:</h4>
-                    <div class="stat-grid">
-                        <div class="stat-box">
-                            <div class="stat-number" id="currentRev">$0</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">الإيرادات الحالية</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number" id="potentialRev">$0</div>
-                            <div style="font-size: 0.8rem; color: var(--text-secondary);">المحتملة</div>
-                        </div>
-                    </div>
-                    <div class="loss-box">
-                        <strong>الخسارة الشهرية: <span id="monthlyLoss" style="color: var(--accent-red); font-size: 1.3rem;">$0</span></strong>
-                        <p id="recommendation" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);"></p>
-                    </div>
-                    <button onclick="scrollToContact()" style="background: var(--accent-green); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; width: 100%;">
-                        <i class="fas fa-envelope"></i> احصل على خطة التحسين
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">خدمات متكاملة تحت سقف واحد</h2>
-        <p class="section-subtitle">لا تحتاج لتوظيف 3 أشخاص، أنا أجمع البرمجة، التصميم، والتسويق</p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h3>تطوير الويب</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">بناء تطبيقات ومواقع احترافية بأحدث التقنيات</p>
-                <ul>
-                    <li>تطوير Full Stack (React, Node.js)</li>
-                    <li>حلول WordPress مخصصة</li>
-                    <li>تحسين الأداء والسرعة</li>
-                    <li>APIs وربط الأنظمة</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <h3>تصميم UI/UX</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">تصميم تجارب مستخدم تجعل الزائر يحب منتجك</p>
-                <ul>
-                    <li>تصميم واجهات تفاعلية</li>
-                    <li>تجربة مستخدم (UX Research)</li>
-                    <li>تصميم هوية بصرية</li>
-                    <li>نماذج أولية (Prototyping)</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon" style="background: linear-gradient(135deg, #10b981, #3b82f6);">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>التسويق الرقمي</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">جلب زبائن حقيقيين وليس مجرد زيارات</p>
-                <ul>
-                    <li>تحسين محركات البحث (SEO)</li>
-                    <li>إعلانات Google & Social Media</li>
-                    <li>تحليل البيانات وAnalytics</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2 class="section-title">معمل الأعمال</h2>
-        <p class="section-subtitle">مشاريع حقيقية، نتائج قابلة للقياس</p>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-image">
-                    <i class="fas fa-shopping-bag"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>متجر إلكتروني متكامل</h3>
-                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">تطوير متجر بمعدل تحويل 4.2% وزيادة مبيعات 150%</p>
-                    <div>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">UX</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background: linear-gradient(135deg, #1e293b, #334155);">
-                    <i class="fas fa-hospital"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>نظام حجز طبي ذكي</h3>
-                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">تقليل وقت الحجز من 15 دقيقة إلى 30 ثانية</p>
-                    <div>
-                        <span class="tag">Full Stack</span>
-                        <span class="tag">UI/UX</span>
-                        <span class="tag">SEO</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
-                    <i class="fas fa-chart-pie"></i>
-                </div>
-                <div class="portfolio-content">
-                    <h3>لوحة تحليلات Marketing</h3>
-                    <p style="color: var(--text-secondary); margin: 0.5rem 0;">Dashboard لتحليل أداء الإعلانات ب real-time</p>
-                    <div>
-                        <span class="tag">Data Viz</span>
-                        <span class="tag">React</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Whiteboard Section -->
-    <section id="whiteboard">
-        <h2 class="section-title">ارسم فكرتك</h2>
-        <p class="section-subtitle">ارسم رسمة تخطيطية لفكرتك وسأحولها إلى تصميم احترافي</p>
-        
-        <div class="whiteboard-wrapper">
-            <div class="whiteboard-header">
-                <div>
-                    <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem;"><i class="fas fa-pencil-alt"></i> لوحة الرسم التفاعلية</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">ارسم ما تريد ثم احفظه كصورة</p>
-                </div>
-                <div class="whiteboard-tools">
-                    <button class="tool-btn active" onclick="setPenTool()" id="penBtn" title="قلم">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="tool-btn" onclick="setEraserTool()" id="eraserBtn" title="ممحاة">
-                        <i class="fas fa-eraser"></i>
-                    </button>
-                    <button class="tool-btn" onclick="clearCanvas()" title="مسح الكل" style="color: #ef4444;">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                    <button class="tool-btn" onclick="downloadCanvas()" title="تحميل الصورة" style="color: #10b981;">
-                        <i class="fas fa-download"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="canvas-container">
-                <canvas id="drawingCanvas"></canvas>
-            </div>
-            
-            <p style="text-align: center; color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
-                <i class="fas fa-info-circle"></i> استخدم الماوس للرسم على الكمبيوتر أو إصبعك على الجوال
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">لنبدأ مشروعك القادم</h2>
-        <p class="section-subtitle">تواصل معي مباشرة لنحوّل فكرتك إلى حقيقة</p>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>معلومات التواصل</h3>
-                <p>اختر الطريقة التي تناسبك للتواصل مباشرة:</p>
-                
-                <div class="contact-methods">
-                    <a href="https://wa.me/966000000000" target="_blank" class="contact-method">
-                        <div class="contact-icon" style="background: linear-gradient(135deg, #25d366, #128c7e);">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0;">واتساب</h4>
-                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">رد سريع خلال ساعة</p>
-                        </div>
-                    </a>
-                    
-                    <a href="mailto:hello@growthtech.com" class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0;">البريد الإلكتروني</h4>
-                            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">hello@growthtech.com</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="contact-form-wrapper">
-                <div id="formStatus" class="form-status"></div>
-                <h3 style="margin-bottom: 1.5rem; color: var(--accent-blue);">أرسل تفاصيل مشروعك</h3>
-                <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label>الاسم *</label>
-                        <input type="text" name="name" required placeholder="اسمك الكريم">
-                    </div>
-
-                    <div class="form-group">
-                        <label>البريد الإلكتروني *</label>
-                        <input type="email" name="email" required placeholder="your@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>نوع المشروع *</label>
-                        <select name="project_type" required style="font-family: 'Cairo', sans-serif;">
-                            <option value="">اختر نوع المشروع...</option>
-                            <option value="new">موقع جديد</option>
-                            <option value="redesign">إعادة تصميم</option>
-                            <option value="app">تطبيق موبايل</option>
-                            <option value="marketing">تسويق رقمي</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>تفاصيل المشروع *</label>
-                        <textarea name="message" rows="4" required placeholder="اشرح فكرتك والمشكلة التي تريد حلها..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> إرسال الطلب
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            <i class="fas fa-code"></i> Growth Tech
-        </div>
-        <p>نبني المستقبل الرقمي، سطراً بسطر</p>
-        
-        <div class="social-links">
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-        
-        <p style="opacity: 0.6; margin-top: 1rem;">
-            © 2026 Growth Tech. جميع الحقوق محفوظة.
-        </p>
-    </footer>
-
-    <!-- Chatbot -->
-    <div class="chat-widget">
-        <button class="chat-button" onclick="toggleChat()" id="chatBtn" aria-label="فتح المحادثة">
-            <i class="fas fa-comments"></i>
-        </button>
-        
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <span><i class="fas fa-robot"></i> مساعد Growth Tech</span>
-                <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="chat-messages" id="chatMessages"></div>
-            
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب رسالتك..." onkeypress="handleKeyPress(event)">
-                <button onclick="sendChatMessage()" style="background: var(--accent-blue); border: none; color: white; padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer;">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookieBanner" class="cookie-banner">
-        <p><i class="fas fa-cookie-bite" style="margin-left: 8px;"></i> نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة المرور</p>
-        <button class="cookie-btn" onclick="acceptCookies()">موافق</button>
-    </div>
-
-    <script>
-        // Initialize EmailJS (استبدل بالمفاتيح الخاصة بك من emailjs.com)
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init("YOUR_PUBLIC_KEY"); // استبدل هذا بمفتاحك العام من EmailJS
-        })();
-
-        // Mobile Menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Navigation hide on scroll
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
-        });
-
-        function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Calculator
-        function calculateLoss() {
-            const visitors = parseFloat(document.getElementById('visitors').value) || 0;
-            const conversion = parseFloat(document.getElementById('conversion').value) || 0;
-            const orderValue = parseFloat(document.getElementById('orderValue').value) || 0;
-            const issue = document.getElementById('issue').value;
-
-            const currentRevenue = visitors * (conversion / 100) * orderValue;
-            
-            const improvements = {
-                'slow': 0.35,
-                'design': 0.50,
-                'mobile': 0.40,
-                'seo': 0.60
-            };
-
-            const multiplier = 1 + (improvements[issue] || 0);
-            const potentialRevenue = currentRevenue * multiplier;
-            const loss = potentialRevenue - currentRevenue;
-
-            document.getElementById('currentRev').textContent = '$' + Math.round(currentRevenue).toLocaleString();
-            document.getElementById('potentialRev').textContent = '$' + Math.round(potentialRevenue).toLocaleString();
-            document.getElementById('monthlyLoss').textContent = '$' + Math.round(loss).toLocaleString();
-
-            const recommendations = {
-                'slow': 'الموقع البطيء يفقد 53% من الزوار. نحتاج تحسين أداء فوري.',
-                'design': 'التصميم القديم ينقص الثقة. Redesign شامل هو الحل.',
-                'mobile': '60% من الزوار من الجوال! نحتاج تصميم متجاوب.',
-                'seo': 'أنت تفقد آلاف الزوار المجانية. SEO سيغير ميزانيتك.'
-            };
-
-            document.getElementById('recommendation').textContent = recommendations[issue];
-            document.getElementById('calcResults').style.display = 'block';
-            
-            // Track calculator usage
-            gtag('event', 'calculator_used', {
-                'event_category': 'engagement',
-                'event_label': issue
-            });
-        }
-
-        // Whiteboard
-        const canvas = document.getElementById('drawingCanvas');
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
-        let tool = 'pen';
-        let lastX = 0;
-        let lastY = 0;
-
-        function initCanvas() {
-            const container = canvas.parentElement;
-            const rect = container.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
-            
-            ctx.scale(dpr, dpr);
-            ctx.lineJoin = 'round';
-            ctx.lineCap = 'round';
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#000000';
-            
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, rect.width, rect.height);
-        }
-
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(initCanvas, 250);
-        });
-
-        function getPos(e) {
-            const rect = canvas.getBoundingClientRect();
-            let clientX, clientY;
-            
-            if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            } else {
-                clientX = e.clientX;
-                clientY = e.clientY;
-            }
-            
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
-        }
-
-        function startDrawing(e) {
-            isDrawing = true;
-            const pos = getPos(e);
-            [lastX, lastY] = [pos.x, pos.y];
-            e.preventDefault();
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            
-            const pos = getPos(e);
-            
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(pos.x, pos.y);
-            
-            if (tool === 'eraser') {
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.lineWidth = 20;
-                ctx.stroke();
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.strokeStyle = '#000000';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            }
-            
-            [lastX, lastY] = [pos.x, pos.y];
-            e.preventDefault();
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-            ctx.beginPath();
-        }
-
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-
-        canvas.addEventListener('touchstart', function(e) {
-            startDrawing(e);
-            e.preventDefault();
-        }, {passive: false});
-
-        canvas.addEventListener('touchmove', function(e) {
-            draw(e);
-            e.preventDefault();
-        }, {passive: false});
-
-        canvas.addEventListener('touchend', stopDrawing);
-
-        function setPenTool() {
-            tool = 'pen';
-            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('penBtn').classList.add('active');
-        }
-
-        function setEraserTool() {
-            tool = 'eraser';
-            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('eraserBtn').classList.add('active');
-        }
-
-        function clearCanvas() {
-            const rect = canvas.getBoundingClientRect();
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, rect.width, rect.height);
-        }
-
-        function downloadCanvas() {
-            const link = document.createElement('a');
-            link.download = 'sketch-' + new Date().getTime() + '.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }
-
-        window.addEventListener('load', initCanvas);
-
-        // Contact Form with EmailJS
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('submitBtn');
-            const status = document.getElementById('formStatus');
-            const form = e.target;
-            
-            btn.classList.add('loading');
-            btn.disabled = true;
-            
-            // Track form submission attempt
-            gtag('event', 'form_submit', {
-                'event_category': 'engagement',
-                'event_label': 'contact_form'
-            });
-
-            // Send email using EmailJS
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
-                .then(function() {
-                    status.className = 'form-status success';
-                    status.innerHTML = '<i class="fas fa-check-circle"></i> تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.';
-                    form.reset();
-                    
-                    gtag('event', 'form_success', {
-                        'event_category': 'conversion',
-                        'event_label': 'contact_form'
-                    });
-                }, function(error) {
-                    status.className = 'form-status error';
-                    status.innerHTML = '<i class="fas fa-exclamation-circle"></i> حدث خطأ، يرجى المحاولة مباشرة عبر الواتساب.';
-                    console.log('Failed...', error);
-                })
-                .finally(function() {
-                    btn.classList.remove('loading');
-                    btn.disabled = false;
-                });
-        }
-
-        // Chatbot
-        let chatOpen = false;
-        
-        function toggleChat() {
-            const container = document.getElementById('chatContainer');
-            chatOpen = !chatOpen;
-            
-            if (chatOpen) {
-                container.classList.add('open');
-                document.getElementById('chatBtn').innerHTML = '<i class="fas fa-times"></i>';
-                
-                if (document.getElementById('chatMessages').children.length === 0) {
-                    setTimeout(() => {
-                        addBotMessage('أهلاً بك! 👋 أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟');
-                        setTimeout(() => {
-                            addQuickReplies(['أريد موقع جديد', 'تحسين موقع موجود', 'استشارة مجانية']);
-                        }, 500);
-                    }, 300);
-                }
-                
-                gtag('event', 'chat_open', {
-                    'event_category': 'engagement'
-                });
-            } else {
-                container.classList.remove('open');
-                document.getElementById('chatBtn').innerHTML = '<i class="fas fa-comments"></i>';
-            }
-        }
-
-        function addBotMessage(text) {
-            const div = document.createElement('div');
-            div.className = 'message bot';
-            div.textContent = text;
-            document.getElementById('chatMessages').appendChild(div);
-            scrollChat();
-        }
-
-        function addUserMessage(text) {
-            const div = document.createElement('div');
-            div.className = 'message user';
-            div.textContent = text;
-            document.getElementById('chatMessages').appendChild(div);
-            scrollChat();
-        }
-
-        function addQuickReplies(options) {
-            const container = document.createElement('div');
-            container.style.cssText = 'display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;';
-            
-            options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.textContent = opt;
-                btn.style.cssText = 'background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; text-align: right; font-family: "Cairo", sans-serif; transition: all 0.2s;';
-                btn.onmouseover = () => btn.style.background = 'rgba(56, 189, 248, 0.2)';
-                btn.onmouseout = () => btn.style.background = 'rgba(56, 189, 248, 0.1)';
-                btn.onclick = () => handleQuickReply(opt);
-                container.appendChild(btn);
-            });
-            
-            const wrapper = document.createElement('div');
-            wrapper.className = 'message bot';
-            wrapper.appendChild(container);
-            document.getElementById('chatMessages').appendChild(wrapper);
-            scrollChat();
-        }
-
-        function handleQuickReply(option) {
-            addUserMessage(option);
-            
-            setTimeout(() => {
-                if (option.includes('موقع ج')) {
-                    addBotMessage('رائع! لنناقش تفاصيل موقعك الجديد. ما نوع الموقع الذي تفكر فيه؟');
-                    addQuickReplies(['متجر إلكتروني', 'موقع شركة', 'مدونة/محتوى', 'تطبيق ويب']);
-                } else if (option.includes('تحسين')) {
-                    addBotMessage('حسناً، ما المشكلة الرئيسية في موقعك الحالي؟');
-                    addQuickReplies(['بطء التحميل', 'تصميم قديم', 'لا يظهر في Google', 'مشاكل تقنية']);
-                } else {
-                    addBotMessage('يمكنك التواصل معي مباشرة عبر الواتساب للحصول على استشارة مجانية:');
-                    const link = document.createElement('a');
-                    link.href = 'https://wa.me/966000000000';
-                    link.target = '_blank';
-                    link.textContent = 'فتح المحادثة';
-                    link.style.cssText = 'display: inline-block; margin-top: 0.5rem; color: var(--accent-blue); text-decoration: none; font-weight: bold;';
-                    
-                    const msg = document.createElement('div');
-                    msg.className = 'message bot';
-                    msg.appendChild(link);
-                    document.getElementById('chatMessages').appendChild(msg);
-                }
-            }, 500);
-        }
-
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') sendChatMessage();
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text) return;
-            
-            addUserMessage(text);
-            input.value = '';
-            
-            setTimeout(() => {
-                addBotMessage('شكراً لتواصلك! سأراجع رسالتك وأرد عليك في أقرب وقت.');
-            }, 600);
-        }
-
-        function scrollChat() {
-            const messages = document.getElementById('chatMessages');
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        // Cookie Consent
-        function acceptCookies() {
-            document.getElementById('cookieBanner').classList.remove('show');
-            localStorage.setItem('cookies_accepted', 'true');
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted'
-            });
-        }
-
-        // Show cookie banner after 2 seconds if not accepted
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                if (!localStorage.getItem('cookies_accepted')) {
-                    document.getElementById('cookieBanner').classList.add('show');
-                }
-            }, 2000);
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                    </a
