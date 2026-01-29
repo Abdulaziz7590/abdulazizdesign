@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://abdulaziz7590.github.io/abdulazizdesign/sitemap.xml
