@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
         :root {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
-            --bg-glass: rgba(30, 41, 59, 0.8);
+            --bg-glass: rgba(30, 41, 59, 0.85);
             --accent-blue: #38bdf8;
             --accent-purple: #818cf8;
             --accent-green: #10b981;
@@ -33,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Grid */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -53,7 +52,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             z-index: 1000;
@@ -86,7 +85,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
@@ -180,7 +179,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 20px 40px -5px rgba(56, 189, 248, 0.4);
         }
 
@@ -192,6 +191,7 @@
 
         .btn-secondary:hover {
             border-color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.1);
         }
 
         /* Calculator */
@@ -212,6 +212,7 @@
         .calc-header h3 {
             color: var(--accent-blue);
             font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .input-group {
@@ -229,12 +230,20 @@
         .input-group select {
             width: 100%;
             padding: 0.75rem 1rem;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 8px;
             color: var(--text-primary);
             font-size: 1rem;
             font-family: 'Cairo', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
         }
 
         .calculate-btn {
@@ -248,6 +257,11 @@
             font-size: 1.1rem;
             cursor: pointer;
             font-family: 'Cairo', sans-serif;
+            transition: transform 0.2s;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
         }
 
         .results {
@@ -257,6 +271,12 @@
             background: rgba(56, 189, 248, 0.1);
             border-right: 4px solid var(--accent-blue);
             border-radius: 12px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .stat-box {
@@ -287,12 +307,13 @@
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
             padding: 2.5rem;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
             border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
         }
 
         .service-icon {
@@ -325,51 +346,80 @@
             position: absolute;
             right: 0;
             color: var(--accent-blue);
+            font-weight: bold;
         }
 
-        /* Whiteboard Section */
-        .whiteboard-container {
+        /* Whiteboard Section - تم إصلاحه */
+        .whiteboard-wrapper {
             background: var(--bg-glass);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
             padding: 2rem;
             margin-top: 3rem;
+            position: relative;
+        }
+
+        .whiteboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .whiteboard-tools {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            z-index: 10;
         }
 
         .tool-btn {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            border: 2px solid rgba(255,255,255,0.1);
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s;
         }
 
-        .tool-btn.active, .tool-btn:hover {
+        .tool-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .tool-btn.active {
             background: var(--accent-blue);
             border-color: var(--accent-blue);
+            color: white;
         }
 
-        #whiteboard {
+        /* Canvas Container */
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
             background: white;
             border-radius: 12px;
-            cursor: crosshair;
-            width: 100%;
-            height: 400px;
-            display: block;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.3);
         }
 
-        /* Portfolio Section */
+        #drawingCanvas {
+            display: block;
+            cursor: crosshair;
+            touch-action: none;
+            background: white;
+        }
+
+        /* Portfolio */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -387,6 +437,7 @@
 
         .portfolio-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .portfolio-image {
@@ -398,6 +449,19 @@
             justify-content: center;
             font-size: 3rem;
             color: rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image:hover::after {
+            content: 'عرض المشروع';
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
         }
 
         .portfolio-content {
@@ -412,6 +476,7 @@
             font-size: 0.8rem;
             display: inline-block;
             margin: 0.25rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         /* Contact Section */
@@ -422,7 +487,55 @@
             margin-top: 3rem;
         }
 
-        .contact-form {
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--bg-glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(-5px);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form-wrapper {
             background: var(--bg-glass);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
@@ -450,9 +563,19 @@
             border-radius: 8px;
             color: var(--text-primary);
             font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
 
-        /* Chatbot Widget */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+        }
+
+        /* Chatbot */
         .chat-widget {
             position: fixed;
             bottom: 30px;
@@ -470,19 +593,22 @@
             font-size: 1.5rem;
             cursor: pointer;
             box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.4);
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .chat-button:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
         }
 
         .chat-container {
             position: absolute;
             bottom: 80px;
             left: 0;
-            width: 350px;
-            height: 500px;
+            width: 380px;
+            max-height: 600px;
             background: var(--bg-glass);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.1);
@@ -491,15 +617,22 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
+            z-index: 10000;
         }
 
         .chat-container.open {
             display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .chat-header {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            padding: 1rem;
+            padding: 1.2rem;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -509,21 +642,25 @@
         .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 1rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            max-height: 400px;
         }
 
         .message {
             max-width: 80%;
-            padding: 0.75rem;
-            border-radius: 12px;
-            font-size: 0.9rem;
+            padding: 1rem;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
         }
 
         .message.bot {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             align-self: flex-start;
             border-bottom-right-radius: 4px;
         }
@@ -535,59 +672,32 @@
             border-bottom-left-radius: 4px;
         }
 
-        .chat-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .option-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: right;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .option-btn:hover {
-            background: rgba(56, 189, 248, 0.2);
-            border-color: var(--accent-blue);
-        }
-
-        .close-chat {
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
         .chat-input-area {
             padding: 1rem;
             border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(15, 23, 42, 0.5);
             display: flex;
             gap: 0.5rem;
         }
 
         .chat-input {
             flex: 1;
-            padding: 0.5rem;
+            padding: 0.75rem;
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
+            border-radius: 10px;
             color: var(--text-primary);
             font-family: 'Cairo', sans-serif;
         }
 
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
         /* Footer */
         footer {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid rgba(255,255,255,0.1);
             padding: 3rem 5%;
             text-align: center;
@@ -619,6 +729,7 @@
         .social-links a:hover {
             background: var(--accent-blue);
             color: white;
+            transform: translateY(-3px);
         }
 
         /* Responsive */
@@ -626,6 +737,7 @@
             .hero-content,
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .hero-text h1 {
@@ -642,13 +754,30 @@
             
             .chat-container {
                 width: calc(100vw - 40px);
+                position: fixed;
                 left: 20px;
-                height: 60vh;
+                right: 20px;
+                bottom: 100px;
             }
             
             .chat-widget {
                 left: 20px;
                 bottom: 20px;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whiteboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .canvas-container {
+                height: 350px;
             }
         }
     </style>
@@ -677,12 +806,12 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" style="display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); z-index: 999; padding: 2rem;">
+    <div id="mobileMenu" style="display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); z-index: 999; padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
         <ul style="list-style: none;">
-            <li style="margin: 1rem 0;"><a href="#home" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الرئيسية</a></li>
-            <li style="margin: 1rem 0;"><a href="#services" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الخدمات</a></li>
-            <li style="margin: 1rem 0;"><a href="#portfolio" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">الأعمال</a></li>
-            <li style="margin: 1rem 0;"><a href="#contact" style="color: white; text-decoration: none;" onclick="toggleMobileMenu()">تواصل</a></li>
+            <li style="margin: 1rem 0;"><a href="#home" style="color: white; text-decoration: none; font-size: 1.2rem;" onclick="toggleMobileMenu()">الرئيسية</a></li>
+            <li style="margin: 1rem 0;"><a href="#services" style="color: white; text-decoration: none; font-size: 1.2rem;" onclick="toggleMobileMenu()">الخدمات</a></li>
+            <li style="margin: 1rem 0;"><a href="#portfolio" style="color: white; text-decoration: none; font-size: 1.2rem;" onclick="toggleMobileMenu()">الأعمال</a></li>
+            <li style="margin: 1rem 0;"><a href="#contact" style="color: white; text-decoration: none; font-size: 1.2rem;" onclick="toggleMobileMenu()">تواصل</a></li>
         </ul>
     </div>
 
@@ -696,9 +825,9 @@
                 </h1>
                 <p>مطور Full Stack، مصمم UI/UX، ومسوّق رقمي. أبني حلولاً تقنية متكاملة تنمو مع أعمالك.</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#contact" class="btn btn-primary">
+                    <button onclick="scrollToContact()" class="btn btn-primary" style="cursor: pointer; border: none;">
                         <i class="fas fa-rocket"></i> ابدأ مشروعك
-                    </a>
+                    </button>
                     <a href="#portfolio" class="btn btn-secondary">
                         <i class="fas fa-eye"></i> شاهد الأعمال
                     </a>
@@ -707,7 +836,7 @@
 
             <div class="calculator-card">
                 <div class="calc-header">
-                    <h3>حاسبة الخسارة الشهرية</h3>
+                    <h3><i class="fas fa-calculator"></i> حاسبة الخسارة الشهرية</h3>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;">اكتشف كم تخسر بسبب مشاكل تقنية</p>
                 </div>
                 
@@ -728,7 +857,7 @@
 
                 <div class="input-group">
                     <label>المشكلة الأساسية</label>
-                    <select id="issue">
+                    <select id="issue" style="font-family: 'Cairo', sans-serif;">
                         <option value="slow">بطء التحميل (>3 ثواني)</option>
                         <option value="design">تصميم قديم / UX ضعيف</option>
                         <option value="mobile">عدم توافق الجوال</option>
@@ -742,7 +871,7 @@
 
                 <div id="calcResults" class="results" style="display: none;">
                     <h4 style="color: var(--accent-blue); margin-bottom: 1rem;">التحليل التقني:</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                         <div class="stat-box">
                             <div class="stat-number" id="currentRev">$0</div>
                             <div style="font-size: 0.8rem; color: var(--text-secondary);">الإيرادات الحالية</div>
@@ -752,13 +881,13 @@
                             <div style="font-size: 0.8rem; color: var(--text-secondary);">المحتملة</div>
                         </div>
                     </div>
-                    <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-right: 3px solid #ef4444;">
-                        <strong>الخسارة الشهرية: <span id="monthlyLoss" style="color: #ef4444;">$0</span></strong>
+                    <div style="background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; border-right: 3px solid #ef4444; margin-bottom: 1rem;">
+                        <strong>الخسارة الشهرية: <span id="monthlyLoss" style="color: #ef4444; font-size: 1.3rem;">$0</span></strong>
+                        <p id="recommendation" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);"></p>
                     </div>
-                    <p id="recommendation" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
-                    <a href="#contact" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--accent-green); color: white; text-decoration: none; border-radius: 8px;">
-                        احصل على خطة التحسين
-                    </a>
+                    <button onclick="scrollToContact()" style="background: var(--accent-green); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; width: 100%;">
+                        <i class="fas fa-envelope"></i> احصل على خطة التحسين
+                    </button>
                 </div>
             </div>
         </div>
@@ -865,34 +994,39 @@
         </div>
     </section>
 
-    <!-- Whiteboard Section -->
+    <!-- Whiteboard Section - تم إصلاحه بالكامل -->
     <section id="whiteboard">
         <h2 class="section-title">ارسم فكرتك</h2>
         <p class="section-subtitle">ارسم رسمة تخطيطية لفكرتك وسأحولها إلى تصميم احترافي</p>
         
-        <div class="whiteboard-container">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3 style="color: var(--accent-blue);">لوحة الرسم التفاعلية</h3>
+        <div class="whiteboard-wrapper">
+            <div class="whiteboard-header">
+                <div>
+                    <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem;"><i class="fas fa-pencil-alt"></i> لوحة الرسم التفاعلية</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">ارسم ما تريد ثم احفظه كصورة</p>
+                </div>
                 <div class="whiteboard-tools">
-                    <button class="tool-btn active" onclick="setTool('pen')" title="قلم">
+                    <button class="tool-btn active" onclick="setPenTool()" id="penBtn" title="قلم">
                         <i class="fas fa-pen"></i>
                     </button>
-                    <button class="tool-btn" onclick="setTool('eraser')" title="ممحاة">
+                    <button class="tool-btn" onclick="setEraserTool()" id="eraserBtn" title="ممحاة">
                         <i class="fas fa-eraser"></i>
                     </button>
                     <button class="tool-btn" onclick="clearCanvas()" title="مسح الكل" style="color: #ef4444;">
                         <i class="fas fa-trash"></i>
                     </button>
-                    <button class="tool-btn" onclick="downloadCanvas()" title="تحميل" style="color: #10b981;">
+                    <button class="tool-btn" onclick="downloadCanvas()" title="تحميل الصورة" style="color: #10b981;">
                         <i class="fas fa-download"></i>
                     </button>
                 </div>
             </div>
             
-            <canvas id="whiteboard" style="background: white; border-radius: 12px; cursor: crosshair;"></canvas>
+            <div class="canvas-container">
+                <canvas id="drawingCanvas"></canvas>
+            </div>
             
             <p style="text-align: center; color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">
-                <i class="fas fa-info-circle"></i> اضغط ومستمر للرسم بالماوس أو باللمس على الجوال
+                <i class="fas fa-info-circle"></i> استخدم الماوس للرسم على الكمبيوتر أو إصبعك على الجوال
             </p>
         </div>
     </section>
@@ -903,13 +1037,13 @@
         <p class="section-subtitle">تواصل معي مباشرة لنحوّل فكرتك إلى حقيقة</p>
 
         <div class="contact-container">
-            <div>
-                <h3 style="margin-bottom: 1rem;">معلومات التواصل</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">اختر الطريقة التي تناسبك للتواصل:</p>
+            <div class="contact-info">
+                <h3>معلومات التواصل</h3>
+                <p>اختر الطريقة التي تناسبك للتواصل مباشرة:</p>
                 
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <a href="https://wa.me/1234567890" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; color: var(--text-primary);">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #25d366, #128c7e); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                <div class="contact-methods">
+                    <a href="https://wa.me/966000000000" target="_blank" class="contact-method">
+                        <div class="contact-icon" style="background: linear-gradient(135deg, #25d366, #128c7e);">
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div>
@@ -918,8 +1052,8 @@
                         </div>
                     </a>
                     
-                    <a href="mailto:hello@growthtech.com" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; color: var(--text-primary);">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                    <a href="mailto:hello@growthtech.com" class="contact-method">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
@@ -930,23 +1064,23 @@
                 </div>
             </div>
 
-            <div class="contact-form">
-                <h3 style="margin-bottom: 1.5rem;">أرسل تفاصيل مشروعك</h3>
-                <form onsubmit="event.preventDefault(); alert('شكراً! تم استلام طلبك وسأتواصل معك خلال 24 ساعة.'); this.reset();">
+            <div class="contact-form-wrapper">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-blue);">أرسل تفاصيل مشروعك</h3>
+                <form onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
-                        <label>الاسم</label>
+                        <label>الاسم *</label>
                         <input type="text" required placeholder="اسمك الكريم">
                     </div>
 
                     <div class="form-group">
-                        <label>البريد الإلكتروني</label>
+                        <label>البريد الإلكتروني *</label>
                         <input type="email" required placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
-                        <label>نوع المشروع</label>
+                        <label>نوع المشروع *</label>
                         <select required style="font-family: 'Cairo', sans-serif;">
-                            <option value="">اختر...</option>
+                            <option value="">اختر نوع المشروع...</option>
                             <option value="new">موقع جديد</option>
                             <option value="redesign">إعادة تصميم</option>
                             <option value="app">تطبيق موبايل</option>
@@ -955,11 +1089,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>تفاصيل المشروع</label>
-                        <textarea rows="4" placeholder="اشرح فكرتك هنا..."></textarea>
+                        <label>تفاصيل المشروع *</label>
+                        <textarea rows="4" required placeholder="اشرح فكرتك والمشكلة التي تريد حلها..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">
                         <i class="fas fa-paper-plane"></i> إرسال الطلب
                     </button>
                 </form>
@@ -969,7 +1103,7 @@
 
     <!-- Footer -->
     <footer>
-        <div style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             <i class="fas fa-code"></i> Growth Tech
         </div>
         <p>نبني المستقبل الرقمي، سطراً بسطر</p>
@@ -981,7 +1115,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
         
-        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
+        <p style="opacity: 0.6; margin-top: 1rem;">
             © 2026 Growth Tech. جميع الحقوق محفوظة.
         </p>
     </footer>
@@ -995,18 +1129,16 @@
         <div class="chat-container" id="chatContainer">
             <div class="chat-header">
                 <span><i class="fas fa-robot"></i> مساعد Growth Tech</span>
-                <button class="close-chat" onclick="toggleChat()">
+                <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
-            <div class="chat-messages" id="chatMessages">
-                <!-- Messages here -->
-            </div>
+            <div class="chat-messages" id="chatMessages"></div>
             
             <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب هنا..." onkeypress="if(event.key==='Enter') handleChatInput()">
-                <button onclick="handleChatInput()" style="background: var(--accent-blue); border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">
+                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب رسالتك..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendChatMessage()" style="background: var(--accent-blue); border: none; color: white; padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer;">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
@@ -1014,13 +1146,17 @@
     </div>
 
     <script>
-        // Mobile Menu
+        // التنقل السلس وإغلاق القائمة المتحركة
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
         }
 
-        // Calculator
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // الحاسبة
         function calculateLoss() {
             const visitors = parseFloat(document.getElementById('visitors').value) || 0;
             const conversion = parseFloat(document.getElementById('conversion').value) || 0;
@@ -1053,202 +1189,293 @@
 
             document.getElementById('recommendation').textContent = recommendations[issue];
             document.getElementById('calcResults').style.display = 'block';
-            document.getElementById('calcResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // Whiteboard
-        const canvas = document.getElementById('whiteboard');
+        // ==================== WHITEBOARD - تم الإصلاح هنا ====================
+        const canvas = document.getElementById('drawingCanvas');
         const ctx = canvas.getContext('2d');
         let isDrawing = false;
-        let currentTool = 'pen';
+        let tool = 'pen';
         let lastX = 0;
         let lastY = 0;
 
-        function resizeCanvas() {
-            const rect = canvas.parentElement.getBoundingClientRect();
-            canvas.width = rect.width - 64;
-            canvas.height = 400;
-            ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = '#000';
+        // تهيئة Canvas عند التحميل
+        function initCanvas() {
+            // الحصول على الأبعاد الفعلية للحاوية
+            const container = canvas.parentElement;
+            const rect = container.getBoundingClientRect();
+            
+            // تعيين أبعاد Canvas لتتناسب مع الحاوية (مع مراعاة الجودة على الشاشات عالية DPI)
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            
+            // تعديل حجم العرض CSS
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            
+            // تصحيح سياق الرسم للشاشات عالية الدقة
+            ctx.scale(dpr, dpr);
+            
+            // إعدادات الرسم الافتراضية
             ctx.lineJoin = 'round';
             ctx.lineCap = 'round';
             ctx.lineWidth = 2;
+            ctx.strokeStyle = '#000000';
+            
+            // ملء الخلفية باللون الأبيض
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, rect.width, rect.height);
         }
 
-        window.addEventListener('load', resizeCanvas);
-        window.addEventListener('resize', resizeCanvas);
+        // إعادة تهيئة Canvas عند تغيير حجم النافذة
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initCanvas, 250);
+        });
 
-        function getPos(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
-        }
-
+        // بدء الرسم
         function startDrawing(e) {
             isDrawing = true;
             const pos = getPos(e);
             [lastX, lastY] = [pos.x, pos.y];
-            e.preventDefault();
+            e.preventDefault(); // منع التمرير على الجوال
         }
 
+        // الرسم
         function draw(e) {
             if (!isDrawing) return;
+            
             const pos = getPos(e);
             
             ctx.beginPath();
             ctx.moveTo(lastX, lastY);
             ctx.lineTo(pos.x, pos.y);
             
-            if (currentTool === 'eraser') {
+            if (tool === 'eraser') {
                 ctx.globalCompositeOperation = 'destination-out';
                 ctx.lineWidth = 20;
+                ctx.stroke();
+                ctx.globalCompositeOperation = 'source-over'; // إعادة للوضع الطبيعي
             } else {
                 ctx.globalCompositeOperation = 'source-over';
-                ctx.strokeStyle = '#000';
+                ctx.strokeStyle = '#000000';
                 ctx.lineWidth = 2;
+                ctx.stroke();
             }
             
-            ctx.stroke();
             [lastX, lastY] = [pos.x, pos.y];
-            e.preventDefault();
+            e.preventDefault(); // منع التمرير على الجوال
         }
 
+        // إيقاف الرسم
         function stopDrawing() {
             isDrawing = false;
             ctx.beginPath();
         }
 
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-        
-        canvas.addEventListener('touchstart', startDrawing, {passive: false});
-        canvas.addEventListener('touchmove', draw, {passive: false});
-        canvas.addEventListener('touchend', stopDrawing);
+        // الحصول على الإحداثيات (للماوس واللمس)
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            let clientX, clientY;
+            
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
 
-        function setTool(tool) {
-            currentTool = tool;
+        // أدوات الرسم
+        function setPenTool() {
+            tool = 'pen';
             document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            document.getElementById('penBtn').classList.add('active');
+        }
+
+        function setEraserTool() {
+            tool = 'eraser';
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('eraserBtn').classList.add('active');
         }
 
         function clearCanvas() {
-            ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const rect = canvas.getBoundingClientRect();
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, rect.width, rect.height);
         }
 
         function downloadCanvas() {
+            // إنشاء رابط مؤقت للتحميل
             const link = document.createElement('a');
-            link.download = 'sketch.png';
+            link.download = 'sketch-' + new Date().getTime() + '.png';
             link.href = canvas.toDataURL();
             link.click();
         }
 
-        // Chatbot
-        let chatStep = 0;
-        let chatData = {};
+        // إضافة مستمعي الأحداث (بدون {passive: false} لتجنب الأخطاء في بعض المتصفحات)
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
 
+        // أحداث اللمس مع preventDefault
+        canvas.addEventListener('touchstart', function(e) {
+            startDrawing(e);
+            e.preventDefault();
+        }, {passive: false});
+
+        canvas.addEventListener('touchmove', function(e) {
+            draw(e);
+            e.preventDefault();
+        }, {passive: false});
+
+        canvas.addEventListener('touchend', stopDrawing);
+
+        // تهيئة Canvas بعد تحميل الصفحة
+        window.addEventListener('load', initCanvas);
+
+        // ==================== CHATBOT ====================
+        let chatOpen = false;
+        
         function toggleChat() {
             const container = document.getElementById('chatContainer');
-            const btn = document.getElementById('chatBtn');
+            chatOpen = !chatOpen;
             
-            if (container.classList.contains('open')) {
-                container.classList.remove('open');
-                btn.innerHTML = '<i class="fas fa-comments"></i>';
-            } else {
+            if (chatOpen) {
                 container.classList.add('open');
-                btn.innerHTML = '<i class="fas fa-times"></i>';
+                document.getElementById('chatBtn').innerHTML = '<i class="fas fa-times"></i>';
                 
-                if (chatStep === 0) {
+                // إذا كانت المحادثة فارغة، ابدأ بالرسالة الترحيبية
+                if (document.getElementById('chatMessages').children.length === 0) {
                     setTimeout(() => {
-                        addChatMessage('أهلاً بك! 👋 أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟', 'bot');
-                        setTimeout(() => {
-                            addChatOptions(['أريد موقع جديد', 'تعديل موقع موجود', 'استشارة تقنية']);
-                        }, 500);
+                        addBotMessage('أهلاً بك! 👋 أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟');
+                        addQuickReplies([
+                            'أريد موقع جديد',
+                            'تحسين موقع موجود',
+                            'استشارة مجانية'
+                        ]);
                     }, 300);
                 }
+            } else {
+                container.classList.remove('open');
+                document.getElementById('chatBtn').innerHTML = '<i class="fas fa-comments"></i>';
             }
         }
 
-        function addChatMessage(text, sender) {
+        function addBotMessage(text) {
             const div = document.createElement('div');
-            div.className = 'message ' + sender;
+            div.className = 'message bot';
             div.textContent = text;
             document.getElementById('chatMessages').appendChild(div);
-            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+            scrollChatToBottom();
         }
 
-        function addChatOptions(options) {
-            const container = document.getElementById('chatMessages');
+        function addUserMessage(text) {
             const div = document.createElement('div');
-            div.className = 'chat-options';
+            div.className = 'message user';
+            div.textContent = text;
+            document.getElementById('chatMessages').appendChild(div);
+            scrollChatToBottom();
+        }
+
+        function addQuickReplies(options) {
+            const container = document.createElement('div');
+            container.style.cssText = 'display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;';
             
-            options.forEach(opt => {
+            options.forEach(option => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.textContent = opt;
-                btn.onclick = function() {
-                    addChatMessage(opt, 'user');
-                    handleChatOption(opt);
-                    div.remove();
-                };
-                div.appendChild(btn);
+                btn.textContent = option;
+                btn.style.cssText = `
+                    background: rgba(56, 189, 248, 0.1);
+                    border: 1px solid rgba(56, 189, 248, 0.3);
+                    color: var(--text-primary);
+                    padding: 0.75rem 1rem;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    text-align: right;
+                    font-family: 'Cairo', sans-serif;
+                    transition: all 0.2s;
+                `;
+                btn.onmouseover = () => btn.style.background = 'rgba(56, 189, 248, 0.2)';
+                btn.onmouseout = () => btn.style.background = 'rgba(56, 189, 248, 0.1)';
+                btn.onclick = () => handleQuickReply(option);
+                container.appendChild(btn);
             });
             
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message bot';
+            wrapper.appendChild(container);
+            document.getElementById('chatMessages').appendChild(wrapper);
+            scrollChatToBottom();
         }
 
-        function handleChatOption(option) {
-            chatStep++;
+        function handleQuickReply(option) {
+            addUserMessage(option);
+            
             setTimeout(() => {
-                if (chatStep === 1) {
-                    chatData.service = option;
-                    addChatMessage('ممتاز! ما ميزانيتك المتوقعة؟', 'bot');
-                    setTimeout(() => addChatOptions(['أقل من 1000$', '1000-3000$', 'أكثر من 3000$']), 300);
-                } else if (chatStep === 2) {
-                    chatData.budget = option;
-                    addChatMessage('يمكنك الآن وصف مشروعك باختصار، أو اضغط على زر الواتساب للتواصل المباشر:', 'bot');
-                    setTimeout(() => {
-                        const container = document.getElementById('chatMessages');
-                        const link = document.createElement('a');
-                        link.href = 'https://wa.me/1234567890?text=' + encodeURIComponent(`مرحباً، أنا مهتم بـ ${chatData.service} وميزانيتي ${chatData.budget}`);
-                        link.className = 'btn btn-primary';
-                        link.style = 'display: inline-block; margin: 10px 0; text-decoration: none;';
-                        link.target = '_blank';
-                        link.innerHTML = '<i class="fab fa-whatsapp"></i> تواصل عبر واتساب';
-                        const div = document.createElement('div');
-                        div.className = 'message bot';
-                        div.appendChild(link);
-                        container.appendChild(div);
-                        container.scrollTop = container.scrollHeight;
-                    }, 300);
+                if (option.includes('موقع ج')) {
+                    addBotMessage('رائع! لنناقش تفاصيل موقعك الجديد. ما نوع الموقع الذي تفكر فيه؟');
+                    addQuickReplies(['متجر إلكتروني', 'موقع شركة', 'مدونة/محتوى', 'تطبيق ويب']);
+                } else if (option.includes('تحسين')) {
+                    addBotMessage('حسناً، ما المشكلة الرئيسية في موقعك الحالي؟');
+                    addQuickReplies(['بطء التحميل', 'تصميم قديم', 'لا يظهر في Google', 'مشاكل تقنية']);
+                } else {
+                    addBotMessage('يمكنك التواصل معي مباشرة عبر الواتساب للحصول على استشارة مجانية:');
+                    const link = document.createElement('a');
+                    link.href = 'https://wa.me/966000000000';
+                    link.target = '_blank';
+                    link.textContent = 'فتح المحادثة';
+                    link.style.cssText = 'display: inline-block; margin-top: 0.5rem; color: var(--accent-blue); text-decoration: none; font-weight: bold;';
+                    
+                    const msg = document.createElement('div');
+                    msg.className = 'message bot';
+                    msg.appendChild(link);
+                    document.getElementById('chatMessages').appendChild(msg);
                 }
             }, 500);
         }
 
-        function handleChatInput() {
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        function sendChatMessage() {
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
             if (!text) return;
             
-            addChatMessage(text, 'user');
+            addUserMessage(text);
             input.value = '';
             
             setTimeout(() => {
-                addChatMessage('شكراً لك! سأقوم بمراجعة رسالتك والرد عليك قريباً. يمكنك أيضاً استخدام النموذج أدناه لإرسال تفاصيل أكثر.', 'bot');
-            }, 500);
+                addBotMessage('شكراً لتواصلك! سأراجع رسالتك وأرد عليك في أقرب وقت. يمكنك أيضاً ملء النموذج في أسفل الصفحة لتفاصيل أكثر.');
+            }, 600);
+        }
+
+        function scrollChatToBottom() {
+            const messages = document.getElementById('chatMessages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // نموذج التواصل
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('✅ تم إرسال طلبك بنجاح! سأتواصل معك خلال 24 ساعة.');
+            e.target.reset();
         }
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
