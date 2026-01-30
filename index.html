@@ -216,6 +216,188 @@
     </a>
 
 </body>
+</html>            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 0.5rem;
+            font-weight: 600;
+        }
+        
+        /* Sections */
+        section { padding: 60px 0; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #38bdf8;
+        }
+        
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card h3 { color: #38bdf8; margin-bottom: 1rem; }
+        .card ul { list-style: none; color: #94a3b8; }
+        .card li { padding: 0.5rem 0; }
+        
+        /* Contact */
+        .contact-box {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+        }
+        
+        /* Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo"><i class="fas fa-code"></i> Growth Tech</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>حوّل موقعك من <span>كلفة إلى استثمار</span></h1>
+            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 2rem;">
+                مطور Full Stack، مصمم UI/UX، ومسوّق رقمي
+            </p>
+            <a href="#contact" class="btn"><i class="fas fa-rocket"></i> ابدأ مشروعك</a>
+            <a href="https://wa.me/966000000000" class="btn" style="background: transparent; border: 2px solid #38bdf8;"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">الخدمات</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3><i class="fas fa-laptop-code"></i> تطوير الويب</h3>
+                    <ul>
+                        <li>تطوير Full Stack</li>
+                        <li>React & Node.js</li>
+                        <li>WordPress مخصص</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-paint-brush"></i> تصميم UI/UX</h3>
+                    <ul>
+                        <li>تصميم واجهات</li>
+                        <li>تجربة مستخدم</li>
+                        <li>نماذج أولية</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-chart-line"></i> تسويق رقمي</h3>
+                    <ul>
+                        <li>تحسين SEO</li>
+                        <li>إعلانات Google</li>
+                        <li>تحليل البيانات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="contact-box">
+                <form onsubmit="event.preventDefault(); alert('تم الإرسال!'); this.reset();">
+                    <input type="text" placeholder="الاسم" required>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                    <select required>
+                        <option value="">نوع المشروع</option>
+                        <option>موقع جديد</option>
+                        <option>تعديل موقع</option>
+                        <option>تسويق</option>
+                    </select>
+                    <textarea rows="4" placeholder="تفاصيل المشروع" required></textarea>
+                    <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i> إرسال
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><i class="fas fa-code"></i> Growth Tech &copy; 2026</p>
+        <p style="margin-top: 0.5rem;">نبني المستقبل الرقمي</p>
+    </footer>
+
+    <a href="https://wa.me/966000000000">
+        <button class="chat-btn"><i class="fab fa-whatsapp"></i></button>
+    </a>
+
+</body>
 </html>            --accent-purple: #818cf8;
             --accent-green: #10b981;
             --accent-red: #ef4444;
@@ -1149,4 +1331,5 @@
                     <a href="#portfolio" class="btn btn-secondary">
                         <i class="fas fa-eye"></i> شاهد الأعمال
                     </a
+
 
