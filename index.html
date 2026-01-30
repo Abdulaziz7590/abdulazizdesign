@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growth Tech</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -12,29 +11,269 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
         }
         
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0f172a;
-            color: #f8fafc;
+            color: white;
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         /* Header */
         header {
-            background: rgba(15, 23, 42, 0.98);
-            padding: 1rem 5%;
+            background: #1e293b;
+            padding: 15px;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid #38bdf8;
         }
+        
+        .logo {
+            color: #38bdf8;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        /* Content */
+        .content {
+            margin-top: 70px;
+            padding: 20px;
+        }
+        
+        /* Sections */
+        section {
+            background: #1e293b;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+        
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        /* Services */
+        .service-box {
+            background: #0f172a;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-right: 4px solid #38bdf8;
+        }
+        
+        .service-box h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        
+        .service-box ul {
+            list-style: none;
+            color: #cbd5e1;
+            padding-right: 0;
+        }
+        
+        .service-box li {
+            padding: 5px 0;
+        }
+        
+        /* Contact Form */
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e293b;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 20px;
+            border-top: 2px solid #38bdf8;
+        }
+        
+        footer h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        
+        footer p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo"><i class="fas fa-code"></i> Growth Tech</div>
+        <div style="color: white;">
+            <a href="#contact" style="color: white; text-decoration: none;"><i class="fas fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Hero -->
+        <section>
+            <h1>حوّل موقعك من كلفة إلى استثمار</h1>
+            <p>مطور Full Stack، مصمم UI/UX، ومسوّق رقمي. أبني حلولاً تقنية متكاملة تنمو مع أعمالك.</p>
+            <a href="#services" class="btn">الخدمات</a>
+            <a href="#contact" class="btn">تواصل معي</a>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+            <h2>الخدمات</h2>
+            
+            <div class="service-box">
+                <h3><i class="fas fa-laptop-code"></i> تطوير الويب</h3>
+                <ul>
+                    <li>✓ تطوير Full Stack (React, Node.js)</li>
+                    <li>✓ حلول WordPress مخصصة</li>
+                    <li>✓ تحسين الأداء والسرعة</li>
+                </ul>
+            </div>
+            
+            <div class="service-box">
+                <h3><i class="fas fa-paint-brush"></i> تصميم UI/UX</h3>
+                <ul>
+                    <li>✓ تصميم واجهات تفاعلية</li>
+                    <li>✓ تجربة مستخدم (UX Research)</li>
+                    <li>✓ نماذج أولية (Prototyping)</li>
+                </ul>
+            </div>
+            
+            <div class="service-box">
+                <h3><i class="fas fa-chart-line"></i> التسويق الرقمي</h3>
+                <ul>
+                    <li>✓ تحسين محركات البحث (SEO)</li>
+                    <li>✓ إعلانات Google و Social Media</li>
+                    <li>✓ تحليل البيانات و Analytics</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section>
+            <h2>أعمال سابقة</h2>
+            <div class="service-box">
+                <h3>متجر إلكتروني متكامل</h3>
+                <p>تطوير متجر بمعدل تحويل 4.2% وزيادة مبيعات 150%</p>
+            </div>
+            <div class="service-box">
+                <h3>نظام حجز طبي ذكي</h3>
+                <p>تقليل وقت الحجز من 15 دقيقة إلى 30 ثانية</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>تواصل معي</h2>
+            <p>املأ النموذج التالي وسأرد عليك خلال 24 ساعة:</p>
+            
+            <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!');">
+                <input type="text" placeholder="اسمك الكريم" required>
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <input type="tel" placeholder="رقم الجوال (اختياري)">
+                <select required>
+                    <option value="">اختر نوع الخدمة</option>
+                    <option>تصميم موقع جديد</option>
+                    <option>تعديل موقع موجود</option>
+                    <option>تحسين SEO</option>
+                    <option>إدارة حملات إعلانية</option>
+                </select>
+                <textarea rows="4" placeholder="اكتب تفاصيل مشروعك هنا..." required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3><i class="fas fa-code"></i> Growth Tech</h3>
+        <p>نبني المستقبل الرقمي، سطراً بسطر</p>
+        <br>
+        <p>© 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/966000000000" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>        }
         
         .logo {
             font-size: 1.3rem;
